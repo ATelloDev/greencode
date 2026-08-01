@@ -137,6 +137,27 @@ La aplicacion estara disponible en `http://localhost:4200/`.
 
 ---
 
+## Docker
+
+La aplicacion incluye configuracion Docker lista para usar:
+
+```bash
+# Construir y ejecutar con docker compose
+docker compose up --build
+
+# O construir y ejecutar manualmente
+docker build -t greencode .
+docker run -p 8080:80 greencode
+```
+
+La aplicacion estara disponible en `http://localhost:8080/`.
+
+El `Dockerfile` usa multi-stage build:
+1. **Build stage**: Node 20 Alpine instala dependencias y compila Angular
+2. **Serve stage**: Nginx Alpine sirve los archivos estaticos con gzip y SPA routing
+
+---
+
 ## Despliegue
 
 El despliegue es **automatico** mediante GitHub Actions:
