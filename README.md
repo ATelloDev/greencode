@@ -1,59 +1,71 @@
-# Redlink
+# GreenCode — Red Profesional para Desarrolladores
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.27.
+Aplicación web construida con **Angular 19** (standalone components, signals, lazy loading) que funciona como una red profesional tipo LinkedIn exclusiva para desarrolladores de software.
 
-## Development server
+## Características
 
-To start a local development server, run:
+- **Feed**: Publicaciones, comentarios, likes, compartir y guardar
+- **Perfil**: Experiencia, educación, habilidades, analíticas, edición en tiempo real
+- **Empleos**: Búsqueda con filtros (remoto, postulación fácil, guardados)
+- **Mensajería**: Conversaciones en tiempo real con respuestas automáticas
+- **Mi Red**: Invitaciones, conexiones, sugerencias
+- **Notificaciones**: Sistema completo con contador de no leídas
+- **Autenticación**: LinkedIn OIDC + modo demo
+- **Tema**: Verde con modo oscuro forzado, CSS variables
+- **APIs reales**: randomuser.me, Picsum Photos, DiceBear
+
+## Estructura del Proyecto
+
+```
+src/app/
+├── app.component.ts          # Componente raíz
+├── app.config.ts             # Configuración de la app (providers)
+├── app.routes.ts             # Rutas con lazy loading
+├── guards/
+│   └── auth.guard.ts         # Guard de autenticación
+├── models.ts                 # Interfaces TypeScript
+├── pages/
+│   ├── login/                # Pantalla de inicio de sesión
+│   ├── auth-callback/        # Callback OAuth de LinkedIn
+│   ├── layout/               # Layout principal con navbar
+│   ├── feed/                 # Feed de publicaciones
+│   ├── profile/              # Perfil de usuario
+│   ├── network/              # Red de conexiones
+│   ├── jobs/                 # Bolsa de empleo
+│   ├── messaging/            # Mensajería
+│   └── notifications/        # Notificaciones
+└── services/
+    ├── auth.service.ts       # Autenticación LinkedIn + demo
+    ├── data.service.ts       # Estado global con signals
+    └── real-api.service.ts   # Integración con APIs reales
+```
+
+## Servidor de desarrollo
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navega a `http://localhost:4200/`.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Build
 
 ```bash
-ng generate component component-name
+ng build --configuration production
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Los artefactos se guardan en `dist/`.
 
-```bash
-ng generate --help
-```
+## Despliegue
 
-## Building
+El proyecto se despliega automáticamente a GitHub Pages mediante GitHub Actions al hacer push a `main`.
 
-To build the project run:
+URL: https://atellodev.github.io/greencode/
 
-```bash
-ng build
-```
+## Tecnologías
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular 19.2 (standalone components, signals, control flow)
+- TypeScript 5.6
+- RxJS 7.8
+- GitHub Actions (CI/CD)
+- GitHub Pages (hosting)

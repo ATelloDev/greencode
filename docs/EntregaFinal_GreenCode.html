@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenCode - Entrega Final</title>
+<style>
+  @page { size: A4; margin: 2cm; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; line-height: 1.6; font-size: 12px; }
+  .portada { text-align: center; padding-top: 200px; page-break-after: always; }
+  .portada h1 { font-size: 36px; color: #15803d; margin-bottom: 10px; }
+  .portada h2 { font-size: 20px; color: #444; margin-bottom: 40px; }
+  .portada .info { font-size: 14px; color: #666; line-height: 2; }
+  .portada .logo { font-size: 72px; font-weight: 800; color: #16a34a; background: #f0fdf4; width: 100px; height: 100px; border-radius: 20px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  h2.section { font-size: 22px; color: #15803d; border-bottom: 2px solid #16a34a; padding-bottom: 8px; margin-top: 30px; page-break-after: avoid; }
+  h3.subsection { font-size: 16px; color: #166534; margin-top: 20px; page-break-after: avoid; }
+  .caption { font-size: 11px; color: #666; font-style: italic; margin-top: 4px; margin-bottom: 16px; }
+  .code-block { background: #0d0d0d; color: #e0e0e0; padding: 16px; border-radius: 8px; font-family: 'Consolas', 'Courier New', monospace; font-size: 10px; line-height: 1.5; overflow-x: auto; white-space: pre-wrap; page-break-inside: avoid; border: 1px solid #2a2a2a; }
+  .feature-card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px; page-break-inside: avoid; }
+  .feature-card h3 { margin-top: 0; color: #15803d; }
+  .feature-card .desc { font-size: 11px; color: #555; }
+  .file-path { font-family: 'Consolas', monospace; font-size: 10px; color: #888; background: #f5f5f5; padding: 2px 6px; border-radius: 4px; }
+  .badge { display: inline-block; background: #16a34a; color: white; padding: 2px 10px; border-radius: 12px; font-size: 10px; font-weight: 600; }
+  .page-break { page-break-before: always; }
+  p { text-align: justify; }
+  .url-box { background: #f0fdf4; border: 1px solid #16a34a; border-radius: 8px; padding: 12px 16px; text-align: center; font-size: 14px; font-weight: 600; color: #15803d; margin: 16px 0; }
+  .tech-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .tech-item { background: #f0fdf4; border: 1px solid #86efac; border-radius: 6px; padding: 6px 12px; font-size: 11px; color: #166534; font-weight: 500; }
+  .screenshot-placeholder { background: #1a1a1a; border-radius: 8px; padding: 40px; text-align: center; color: #a0a0a0; margin: 16px 0; page-break-inside: avoid; border: 2px dashed #2a2a2a; }
+  .screenshot-placeholder .icon { font-size: 48px; margin-bottom: 12px; }
+  .screenshot-placeholder .label { font-size: 13px; color: #e0e0e0; font-weight: 600; }
+  .screenshot-placeholder .sublabel { font-size: 11px; color: #707070; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="portada">
+  <div class="logo">G</div>
+  <h1>GreenCode</h1>
+  <h2>Red Profesional para Desarrolladores</h2>
+  <div class="info">
+    <p><strong>Entrega Final del Proyecto</strong></p>
+    <p>Aplicación Web con Angular 19 — Estilos, Despliegue y Resultados</p>
+    <p style="margin-top: 60px;">Materia: Desarrollo Web Frontend</p>
+    <p>Profesor: [Nombre del Profesor]</p>
+    <p>Alumno: Leonel Espinoza</p>
+    <p>Fecha: Agosto 2026</p>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<h2 class="section">1. Descripción del Proyecto</h2>
+<p>GreenCode es una red profesional para desarrolladores construida con Angular 19. Permite a los usuarios crear un perfil profesional, publicar contenido, conectar con otros desarrolladores, buscar empleo, enviar mensajes privados y recibir notificaciones. La aplicación está desplegada en GitHub Pages con CI/CD automatizado mediante GitHub Actions.</p>
+
+<div class="url-box">URL de despliegue: https://atellodev.github.io/greencode/</div>
+
+<h2 class="section">2. Estilos y Diseño (CSS)</h2>
+<p>La aplicación utiliza CSS personalizado con variables CSS (custom properties) para mantener consistencia visual. El tema es verde con modo oscuro forzado, inspirado en la identidad de GreenCode.</p>
+
+<div class="code-block"><span style="color:#4ade80;font-weight:bold">:root</span> {
+  <span style="color:#fbbf24">--red-50</span>:  #f0fdf4;  <span style="color:#707070">/* Verde más claro */</span>
+  <span style="color:#fbbf24">--red-500</span>: #22c55e;  <span style="color:#707070">/* Verde principal */</span>
+  <span style="color:#fbbf24">--red-600</span>: #16a34a;  <span style="color:#707070">/* Verde medio */</span>
+  <span style="color:#fbbf24">--red-700</span>: #15803d;  <span style="color:#707070">/* Verde oscuro */</span>
+  
+  <span style="color:#fbbf24">--bg</span>:             #0d0d0d;  <span style="color:#707070">/* Fondo oscuro */</span>
+  <span style="color:#fbbf24">--surface</span>:         #1a1a1a;  <span style="color:#707070">/* Superficie */</span>
+  <span style="color:#fbbf24">--surface-hover</span>:   #242424;  <span style="color:#707070">/* Hover */</span>
+  <span style="color:#fbbf24">--text-primary</span>:    #f5f5f5;  <span style="color:#707070">/* Texto claro */</span>
+  <span style="color:#fbbf24">--text-secondary</span>:  #a0a0a0;  <span style="color:#707070">/* Texto secundario */</span>
+  <span style="color:#fbbf24">--border</span>:          #2a2a2a;  <span style="color:#707070">/* Bordes */</span>
+  
+  <span style="color:#fbbf24">--radius-sm</span>:   6px;
+  <span style="color:#fbbf24">--radius-md</span>:  10px;
+  <span style="color:#fbbf24">--radius-lg</span>:  16px;
+  <span style="color:#fbbf24">--radius-full</span>: 9999px;
+  
+  <span style="color:#fbbf24">--font</span>: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}</div>
+<p class="caption">Figura 1. Variables CSS globales definidas en src/styles.css. Se utiliza una paleta verde con modo oscuro forzado. Las variables --red-* contienen valores verdes (mantenidas del nombre original por compatibilidad). Se incluyen radios de borde, sombras y tipografía Inter desde Google Fonts.</p>
+
+<h3 class="subsection">2.1 Componentes con estilos encapsulados</h3>
+<p>Cada componente de Angular incluye sus estilos en el decorator <code>@Component</code> usando la propiedad <code>styles</code>, garantizando encapsulación de estilos por componente.</p>
+
+<div class="code-block"><span style="color:#4ade80;font-weight:bold">@Component</span>({
+  selector: <span style="color:#fbbf24">'app-feed'</span>,
+  imports: [RouterLink, FormsModule],
+  template: `<span style="color:#707070">...</span>`,
+  styles: [`
+    .feed-layout {
+      display: grid;
+      grid-template-columns: 225px 1fr 300px;
+      gap: 24px;
+      max-width: 1128px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+    .card {
+      background: <span style="color:#fbbf24">var(--surface)</span>;
+      border: 1px solid <span style="color:#fbbf24">var(--border)</span>;
+      border-radius: <span style="color:#fbbf24">var(--radius-lg)</span>;
+      overflow: hidden;
+    }
+    .btn-primary {
+      background: <span style="color:#fbbf24">var(--red-600)</span>;
+      color: white;
+      border-radius: <span style="color:#fbbf24">var(--radius-full)</span>;
+      padding: 8px 24px;
+      font-weight: 600;
+    }
+    <span style="color:#707070">/* ... más estilos ... */</span>
+  `]
+})</div>
+<p class="caption">Figura 2. FeedComponent con estilos encapsulados — Layout CSS Grid de 3 columnas, cards con variables CSS, botones con borderRadius full y colores del tema verde.</p>
+
+<h3 class="subsection">2.2 Responsive Design</h3>
+<div class="code-block"><span style="color:#707070">/* Feed responsive */</span>
+<span style="color:#4ade80;font-weight:bold">@media</span> (max-width: 1000px) {
+  .feed-layout { grid-template-columns: 1fr; }
+  .sidebar-left, .sidebar-right { display: none; }
+}
+
+<span style="color:#707070">/* Jobs responsive */</span>
+<span style="color:#4ade80;font-weight:bold">@media</span> (max-width: 900px) {
+  .jobs-container { grid-template-columns: 1fr; }
+  .job-detail-card { position: static; }
+}
+
+<span style="color:#707070">/* Messaging responsive */</span>
+<span style="color:#4ade80;font-weight:bold">@media</span> (max-width: 768px) {
+  .messaging-container { grid-template-columns: 1fr; }
+  .conv-list-panel { display: none; }
+}</div>
+<p class="caption">Figura 3. Media queries responsive — En móvil se ocultan sidebars laterales del feed, el panel de detalle de empleos pasa a estar debajo de la lista, y la mensajería muestra solo una columna.</p>
+
+<!-- CAPTURAS DE LA APP -->
+<h2 class="section">3. Resultados Finales — Capturas de la Aplicación</h2>
+<p>A continuación se muestran las capturas de la aplicación funcionando, tanto en el servidor local como desplegada en internet.</p>
+
+<div class="screenshot-placeholder">
+  <div class="icon">🔐</div>
+  <div class="label">Pantalla de Login</div>
+  <div class="sublabel">Captura: http://localhost:4400/login — Pantalla de inicio de sesión con hero verde, opciones de LinkedIn y modo demo. Toma esta captura abriendo la app en el navegador.</div>
+</div>
+<p class="caption">Figura 4. Pantalla de Login — La página de acceso muestra el logo GreenCode, un hero con estadísticas del proyecto, y dos botones: "Iniciar con LinkedIn" (OAuth real) y "Modo demo" (acceso inmediato). Fondo con gradiente verde y overlay oscuro.</p>
+
+<div class="screenshot-placeholder">
+  <div class="icon">📰</div>
+  <div class="label">Feed Principal</div>
+  <div class="sublabel">Captura: http://localhost:4400/ — Feed con 3 columnas: perfil (izq), publicaciones (centro), noticias y sugerencias (der).</div>
+</div>
+<p class="caption">Figura 5. Feed Principal — Layout de 3 columnas con CSS Grid. Columna izquierda: tarjeta de perfil con foto, titular y estadísticas. Centro: crear publicación, posts con likes/comentarios/compartir. Derecha: noticias tech y sugerencias de conexión. Todo en modo oscuro con acentos verdes.</p>
+
+<div class="screenshot-placeholder">
+  <div class="icon">👤</div>
+  <div class="label">Perfil de Usuario</div>
+  <div class="sublabel">Captura: http://localhost:4400/profile — Perfil con portada, avatar, experiencia, educación, habilidades y analíticas.</div>
+</div>
+<p class="caption">Figura 6. Perfil de Usuario — Portada con foto de Picsum, avatar, nombre "Leonel Espinoza", titular "Full-Stack Developer | Angular & Node.js". Secciones: Acerca de (editable), Experiencia (CRUD), Educación (CRUD), Habilidades (con endorsements), Analíticas (gráfico de barras semanal), Actividad reciente.</p>
+
+<div class="screenshot-placeholder">
+  <div class="icon">💼</div>
+  <div class="label">Bolsa de Empleo</div>
+  <div class="sublabel">Captura: http://localhost:4400/jobs — Lista de empleos con búsqueda y filtros, panel de detalle a la derecha.</div>
+</div>
+<p class="caption">Figura 7. Bolsa de Empleo — Barra de búsqueda con título y ubicación (signals reactivos). Filtros: Todos, Remoto, Postulación fácil, Aplicados, Guardados. Lista de empleos con logo de empresa, título, ubicación, tipo de trabajo. Panel derecho con detalle del empleo seleccionado, requisitos y botón de aplicar.</p>
+
+<div class="screenshot-placeholder">
+  <div class="icon">💬</div>
+  <div class="label">Mensajería</div>
+  <div class="sublabel">Captura: http://localhost:4400/messaging — Lista de conversaciones y panel de chat con burbujas de mensajes.</div>
+</div>
+<p class="caption">Figura 8. Mensajería Privada — Panel izquierdo con lista de conversaciones, búsqueda filtrable por nombre. Panel derecho con chat: burbujas de mensajes (propias en verde, otros en gris), campo de texto para enviar, auto-respuestas después de 2 segundos. Contador de mensajes no leídos en la navbar.</p>
+
+<div class="screenshot-placeholder">
+  <div class="icon">🌐</div>
+  <div class="label">Mi Red</div>
+  <div class="sublabel">Captura: http://localhost:4400/network — Invitaciones pendientes, conexiones y sugerencias.</div>
+</div>
+<p class="caption">Figura 9. Mi Red — Tres secciones: Invitaciones pendientes (con botones Aceptar/Rechazar), Mis conexiones (lista de contactos), y Sugerencias de personas para conectar. Cada tarjeta muestra foto, nombre, titular y botón de acción.</p>
+
+<div class="screenshot-placeholder">
+  <div class="icon">🔔</div>
+  <div class="label">Notificaciones</div>
+  <div class="sublabel">Captura: http://localhost:4400/notifications — Lista de notificaciones con estado leído/no leído.</div>
+</div>
+<p class="caption">Figura 10. Centro de Notificaciones — Lista de notificaciones con foto del actor, texto descriptivo y timestamp. Las no leídas tienen fondo verde claro y punto indicador. Botón "Marcar todo como leído" en la parte superior.</p>
+
+<!-- DESPLIEGUE -->
+<h2 class="section">4. Salida a Internet (Despliegue)</h2>
+<p>La aplicación se despliega automáticamente a GitHub Pages mediante GitHub Actions cada vez que se hace push a la rama <code>main</code>.</p>
+
+<div class="code-block"><span style="color:#707070"># .github/workflows/deploy.yml</span>
+name: Deploy GreenCode to GitHub Pages
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npx ng build --configuration production
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist/redlink/browser</div>
+<p class="caption">Figura 11. Workflow de GitHub Actions — pipeline CI/CD que se ejecuta en cada push a main. Instala dependencias con npm ci, construye con Angular CLI, y despliega el output a GitHub Pages usando peaceiris/actions-gh-pages.</p>
+
+<div class="url-box">Aplicación en producción: https://atellodev.github.io/greencode/</div>
+
+<div class="screenshot-placeholder">
+  <div class="icon">🚀</div>
+  <div class="label">Aplicación Desplegada en GitHub Pages</div>
+  <div class="sublabel">Captura: https://atellodev.github.io/greencode/ — La app funcionando en internet. Abre esta URL en el navegador y toma la captura.</div>
+</div>
+<p class="caption">Figura 12. Aplicación en producción en GitHub Pages — La URL https://atellodev.github.io/greencode/ sirve la aplicación construida con Angular 19. El despliegue es automático mediante GitHub Actions. La app funciona con datos seed y APIs reales.</p>
+
+<div class="screenshot-placeholder">
+  <div class="icon">⚙️</div>
+  <div class="label">GitHub Actions - Pipeline Exitoso</div>
+  <div class="sublabel">Captura: https://github.com/ATelloDev/greencode/actions — Historial de ejecuciones del workflow de despliegue. Muestra el estado "success" del último despliegue.</div>
+</div>
+<p class="caption">Figura 13. GitHub Actions — Panel de acciones del repositorio mostrando el workflow "Deploy GreenCode to GitHub Pages" con estado completado/success. Cada push a main dispara automáticamente el build y despliegue.</p>
+
+<!-- LO APRENDIDO -->
+<div class="page-break"></div>
+<h2 class="section">5. Lo Aprendido Durante el Proyecto</h2>
+
+<div class="feature-card">
+  <h3>Angular 19 Standalone Components</h3>
+  <p class="desc">Aprendimos a construir componentes sin NgModules, usando el decorator <code>@Component</code> con imports directos. Esto simplifica la arquitectura, reduce boilerplate y mejora el tree-shaking. Cada componente es autónomo y declara sus propias dependencias.</p>
+</div>
+
+<div class="feature-card">
+  <h3>Signals para Gestión de Estado</h3>
+  <p class="desc">Migramos de RxJS BehaviorSubjects a Angular signals (<code>signal()</code>, <code>computed()</code>). Las signals son más simples, síncronas, y notifican cambios solo cuando el valor realmente cambia. Los <code>computed()</code> derivan estado reactivamente sin suscripciones manuales.</p>
+</div>
+
+<div class="feature-card">
+  <h3>Lazy Loading con loadComponent</h3>
+  <p class="desc">Aprendimos a usar <code>loadComponent()</code> en lugar de <code>loadChildren()</code> con módulos. Cada ruta carga su componente bajo demanda, reduciendo el bundle inicial a ~83 kB transferidos. Esto mejora significativamente el First Contentful Paint.</p>
+</div>
+
+<div class="feature-card">
+  <h3>Control Flow Nativo (@if, @for)</h3>
+  <p class="desc">Utilizamos la nueva sintaxis de control flow de Angular 17+ (<code>@if</code>, <code>@for</code>, <code>@else</code>) en lugar de *ngIf y *ngFor. Es más legible, no requiere CommonModule, y tiene mejor performance con tracking integrado.</p>
+</div>
+
+<div class="feature-card">
+  <h3>Integración de APIs Reales</h3>
+  <p class="desc">Aprendimos a consumir APIs REST reales con <code>HttpClient</code> y <code>firstValueFrom</code>. Integramos randomuser.me para perfiles, Picsum Photos para imágenes, y DiceBear para avatares. Implementamos fallbacks graceful cuando las APIs no responden.</p>
+</div>
+
+<div class="feature-card">
+  <h3>OAuth 2.0 con PKCE</h3>
+  <p class="desc">Implementamos autenticación LinkedIn con OAuth 2.0 + PKCE (Proof Key for Code Exchange). Generamos code_verifier y code_challenge con Web Crypto API, manejamos el callback, e intercambiamos el code por access token.</p>
+</div>
+
+<div class="feature-card">
+  <h3>CSS Variables y Tema Oscuro</h3>
+  <p class="desc">Usamos CSS Custom Properties para un sistema de diseño consistente. El modo oscuro se fuerza aplicando variables en <code>:root</code>. Cada componente referencia variables globales (<code>var(--surface)</code>, <code>var(--red-600)</code>), garantizando consistencia visual.</p>
+</div>
+
+<div class="feature-card">
+  <h3>CI/CD con GitHub Actions</h3>
+  <p class="desc">Configuramos un pipeline de despliegue continuo. Cada push a <code>main</code> dispara: npm ci → ng build → deploy a GitHub Pages. Aprendimos a usar secrets de GitHub, actions de terceros (peaceiris/actions-gh-pages), y cache de dependencias.</p>
+</div>
+
+<div class="feature-card">
+  <h3>Persistencia con localStorage</h3>
+  <p class="desc">Implementamos persistencia de datos en localStorage con keys versionadas. El DataService guarda automáticamente posts, conexiones, empleos, conversaciones, perfil y actividades. Al recargar, restaura el estado desde localStorage sin perder datos.</p>
+</div>
+
+<div class="feature-card">
+  <h3>Guards Funcionales (CanActivateFn)</h3>
+  <p class="desc">Aprendimos a usar la API funcional de guards de Angular 19 (<code>CanActivateFn</code>) en lugar de clases <code>CanActivate</code>. Más simple, usa <code>inject()</code> para dependencias, y se integra naturalmente con standalone components.</p>
+</div>
+
+<!-- EXPERIENCIA -->
+<div class="page-break"></div>
+<h2 class="section">6. Experiencia</h2>
+
+<p>Desarrollar GreenCode fue una experiencia integral que abarcó todo el ciclo de vida de una aplicación web moderna: desde la planeación de la arquitectura hasta el despliegue en producción. El proyecto comenzó con la idea de crear una red profesional específica para desarrolladores, un nicho que LinkedIn no atiende con suficiente profundidad técnica.</p>
+
+<p>La fase de planeación (Avance 2) fue fundamental para establecer una arquitectura sólida. Decidir entre standalone components y NgModules tradicionales, elegir signals sobre RxJS para estado, y planificar el lazy loading de cada ruta fueron decisiones que impactaron todo el desarrollo posterior. La estructura de servicios (AuthService, DataService, RealApiService) con responsabilidades claras facilitó enormemente el mantenimiento.</p>
+
+<p>La fase de implementación trajo desafíos interesantes. La integración de OAuth 2.0 con PKCE para LinkedIn requirió entender el flujo completo de autorización, generar code challenges con la Web Crypto API, y manejar el callback correctamente. La gestión de estado con signals resultó notablemente más intuitiva que RxJS para este tipo de aplicación — los <code>computed()</code> eliminaron la necesidad de suscripciones manuales y el código quedó más predecible.</p>
+
+<p>La integración de APIs reales (randomuser.me, Picsum Photos) le dio autenticidad a los datos seed. Ver fotos reales y nombres variados en lugar de datos de prueba genéricos elevó la calidad visual de la aplicación. Implementar fallbacks para cuando las APIs no responden fue una lección importante de resiliencia.</p>
+
+<p>Los bugs encontrados durante la auditoría final fueron valiosas lecciones. El más significativo fue que el FeedComponent tenía un perfil hardcoded en inglés que no usaba el DataService — un error de copy-paste que pasó desapercibido. También descubrimos que las búsquedas en Jobs y Messaging no funcionaban porque usaban strings planos en lugar de signals, lo que rompía la reactividad de los <code>computed()</code>. Estos bugs enseñaron la importancia de revisar que el estado fluya correctamente a través de signals.</p>
+
+<p>El despliegue con GitHub Actions fue sorprendentemente sencillo de configurar pero poderoso en su impacto. Ver la aplicación publicada automáticamente en https://atellodev.github.io/greencode/ después de cada push dio una sensación de profesionalismo y productividad que un despliegue manual nunca podría igualar.</p>
+
+<p>En conclusión, el proyecto GreenCode demostró que Angular 19 con standalone components, signals, y lazy loading es una stack excepcionalmente productiva para construir aplicaciones SPA completas. La combinación de tipado estricto con TypeScript, reactividad con signals, y el ecosistema de Angular CLI resulta en código limpio, mantenible y performante. La experiencia de llevar una idea desde cero hasta producción, con CI/CD, APIs reales, y un tema visual profesional, fue invaluable como aprendizaje integral del desarrollo web frontend.</p>
+
+</body>
+</html>
