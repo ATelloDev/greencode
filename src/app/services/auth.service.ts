@@ -70,13 +70,13 @@ export class AuthService {
   signInDemo(): void {
     const demoUser: LinkedInUser = {
       sub: 'demo-user-001',
-      name: 'Alex Morgan',
-      given_name: 'Alex',
-      family_name: 'Morgan',
-      picture: 'https://randomuser.me/api/portraits/men/32.jpg',
-      email: 'alex.morgan@example.com',
+      name: 'Leonel Espinoza',
+      given_name: 'Leonel',
+      family_name: 'Espinoza',
+      picture: 'https://randomuser.me/api/portraits/men/45.jpg',
+      email: 'leonel.espinoza@greencode.dev',
       email_verified: true,
-      locale: 'en-US',
+      locale: 'es-ES',
     };
     this.setSession(demoUser, 'demo-access-token');
   }

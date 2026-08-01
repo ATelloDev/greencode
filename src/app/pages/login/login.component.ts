@@ -15,11 +15,9 @@ import { Router } from '@angular/router';
             <span class="logo-icon">G</span>
             <span class="logo-text">GreenCode</span>
           </div>
-          <h1>Conecta. Crece. Haz un Impacto.</h1>
+          <h1>Conecta con devs. Crece tu carrera. Escribe buen código.</h1>
           <p class="hero-subtitle">
-            La red profesional hecha para creadores. Impulsada por Angular,
-            integrada con LinkedIn. Encuentra oportunidades, comparte conocimiento y
-            haz crecer tu carrera en una comunidad que valora lo que creas.
+            La red profesional exclusiva para desarrolladores de software. Comparte tu código, encuentra oportunidades laborales, mentorea y sé mentorado. Impulsada por Angular, integrada con LinkedIn.
           </p>
           <div class="hero-features">
             <div class="feature">
@@ -27,21 +25,21 @@ import { Router } from '@angular/router';
                 <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
                 <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
               </svg>
-              <span>Conecta con profesionales de todo el mundo</span>
+              <span>Conecta con desarrolladores de todo el mundo</span>
             </div>
             <div class="feature">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="7" width="20" height="14" rx="2"/>
                 <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
               </svg>
-              <span>Descubre trabajos que coincidan con tus habilidades</span>
+              <span>Descubre trabajos dev que coincidan con tu stack</span>
             </div>
             <div class="feature">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 11l18-5v12L3 14v-3z"/>
                 <path d="M11.6 16.8a3 3 0 11-5.8-1.6"/>
               </svg>
-              <span>Comparte tu experiencia con la comunidad</span>
+              <span>Comparte tu código y conocimiento con la comunidad dev</span>
             </div>
             <div class="feature">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -50,13 +48,13 @@ import { Router } from '@angular/router';
                 <path d="M23 21v-2a4 4 0 00-3-3.87"/>
                 <path d="M16 3.13a4 4 0 010 7.75"/>
               </svg>
-              <span>Mentor y sé mentorizado</span>
+              <span>Mentorea y sé mentorado por otros devs</span>
             </div>
           </div>
           <div class="hero-stats">
             <div class="stat">
               <span class="stat-num">2M+</span>
-              <span class="stat-label">Profesionales</span>
+              <span class="stat-label">Desarrolladores</span>
             </div>
             <div class="stat">
               <span class="stat-num">50K+</span>
@@ -77,7 +75,7 @@ import { Router } from '@angular/router';
             <span class="logo-text">GreenCode</span>
           </div>
           <h2>Bienvenido a GreenCode</h2>
-          <p class="login-subtitle">Inicia sesión para unirte a la comunidad profesional</p>
+          <p class="login-subtitle">Inicia sesión para unirte a la comunidad de desarrolladores</p>
 
           <button class="btn btn-primary btn-lg btn-block linkedin-btn" (click)="signInWithLinkedIn()">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
