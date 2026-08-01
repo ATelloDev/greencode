@@ -59,7 +59,7 @@ import { Post, UserProfile } from '../../models';
           </div>
           <div class="recent-item">
             <span class="recent-icon">#</span>
-            <span>socialimpact</span>
+            <span>nodejs</span>
           </div>
           <div class="recent-item">
             <span class="recent-icon">#</span>
@@ -525,7 +525,7 @@ export class FeedComponent {
   user = computed(() => this.auth.user());
   currentUserId = computed(() => this.data.currentUserId());
 
-  profile = computed<UserProfile>(() => this.buildProfile());
+  profile = computed<UserProfile>(() => this.data.profile() || this.buildFallbackProfile());
 
   suggestedConnections = computed(() =>
     this.data.connections().filter(c => !c.connected && !c.pendingSent).slice(0, 3)
@@ -537,38 +537,24 @@ export class FeedComponent {
     return (u.given_name?.[0] || '') + (u.family_name?.[0] || '');
   });
 
-  private buildProfile(): UserProfile {
+  private buildFallbackProfile(): UserProfile {
     const u = this.auth.user();
     return {
       id: u?.sub || 'demo-user-001',
-      name: u?.name || 'Demo User',
-      givenName: u?.given_name || 'Demo',
-      familyName: u?.family_name || 'User',
+      name: u?.name || 'Leonel Espinoza',
+      givenName: u?.given_name || 'Leonel',
+      familyName: u?.family_name || 'Espinoza',
       picture: u?.picture || '',
       email: u?.email || '',
-      headline: 'Software Engineer | Angular Enthusiast | Building for Social Impact',
-      about: 'Passionate developer focused on building web applications that make a difference. Currently exploring Angular signals and modern web architecture.',
-      location: 'San Francisco Bay Area',
-      industry: 'Technology',
-      experience: [
-        { id: 'e1', title: 'Senior Frontend Engineer', company: 'TechFlow Inc.', startDate: '2022-01', endDate: null, description: 'Leading Angular development for enterprise SaaS products.' },
-        { id: 'e2', title: 'Frontend Developer', company: 'StartupHub', startDate: '2020-03', endDate: '2021-12', description: 'Built and maintained Angular applications for startup clients.' },
-      ],
-      education: [
-        { id: 'ed1', school: 'University of California, Berkeley', degree: 'B.S.', field: 'Computer Science', startYear: 2015, endYear: 2019 },
-      ],
+      headline: 'Full-Stack Developer | Angular & Node.js',
+      about: 'Desarrollador apasionado por código limpio y arquitectura escalable.',
+      location: 'Guadalajara, México',
+      industry: 'Desarrollo de Software',
+      experience: [],
+      education: [],
       coverPhoto: '',
-      skills: [
-        { name: 'Angular', endorsements: 12, endorsedByMe: false },
-        { name: 'TypeScript', endorsements: 8, endorsedByMe: false },
-        { name: 'RxJS', endorsements: 5, endorsedByMe: false },
-        { name: 'CSS', endorsements: 3, endorsedByMe: false },
-        { name: 'Node.js', endorsements: 6, endorsedByMe: false },
-        { name: 'GraphQL', endorsements: 2, endorsedByMe: false },
-        { name: 'Jest', endorsements: 1, endorsedByMe: false },
-        { name: 'CI/CD', endorsements: 4, endorsedByMe: false },
-      ],
-      connectionsCount: 547,
+      skills: [],
+      connectionsCount: 0,
       isCurrentUser: true,
     };
   }

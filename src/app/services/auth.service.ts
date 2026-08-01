@@ -11,7 +11,7 @@ export class AuthService {
   private readonly TOKEN_URL = 'https://www.linkedin.com/oauth/v2/accessToken';
   private readonly USERINFO_URL = 'https://api.linkedin.com/v2/userinfo';
 
-  private readonly STORAGE_KEY = 'redlink_auth';
+  private readonly STORAGE_KEY = 'greencode_auth';
 
   readonly user = signal<LinkedInUser | null>(null);
   readonly accessToken = signal<string | null>(null);
@@ -46,7 +46,7 @@ export class AuthService {
     const codeVerifier = this.generateCodeVerifier();
     const codeChallenge = this.generateCodeChallenge(codeVerifier);
 
-    sessionStorage.setItem('redlink_pkce_verifier', codeVerifier);
+    sessionStorage.setItem('greencode_pkce_verifier', codeVerifier);
 
     const params = new URLSearchParams({
       response_type: 'code',
@@ -58,7 +58,7 @@ export class AuthService {
       state: this.generateState(),
     });
 
-    sessionStorage.setItem('redlink_oauth_state', params.get('state')!);
+    sessionStorage.setItem('greencode_oauth_state', params.get('state')!);
 
     window.location.href = `${this.AUTH_URL}?${params.toString()}`;
   }
@@ -86,13 +86,13 @@ export class AuthService {
    * access token, then fetches the user profile via the userinfo endpoint.
    */
   async handleCallback(code: string, state: string): Promise<boolean> {
-    const savedState = sessionStorage.getItem('redlink_oauth_state');
+    const savedState = sessionStorage.getItem('greencode_oauth_state');
     if (state !== savedState) {
       console.error('OAuth state mismatch');
       return false;
     }
 
-    const codeVerifier = sessionStorage.getItem('redlink_pkce_verifier');
+    const codeVerifier = sessionStorage.getItem('greencode_pkce_verifier');
 
     try {
       const tokenResponse = await fetch(this.TOKEN_URL, {
@@ -143,8 +143,8 @@ export class AuthService {
     this.user.set(null);
     this.accessToken.set(null);
     localStorage.removeItem(this.STORAGE_KEY);
-    sessionStorage.removeItem('redlink_pkce_verifier');
-    sessionStorage.removeItem('redlink_oauth_state');
+    sessionStorage.removeItem('greencode_pkce_verifier');
+    sessionStorage.removeItem('greencode_oauth_state');
   }
 
   private generateCodeVerifier(): string {

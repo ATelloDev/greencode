@@ -22,7 +22,7 @@ import { Conversation } from '../../models';
             </button>
           </div>
           <div class="conv-search">
-            <input type="text" placeholder="Buscar mensajes" [(ngModel)]="searchQuery" class="conv-search-input" />
+            <input type="text" placeholder="Buscar mensajes" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)" class="conv-search-input" />
           </div>
           <div class="conv-list">
             @for (conv of filteredConversations(); track conv.id) {
@@ -154,12 +154,12 @@ export class MessagingComponent {
 
   selectedConv = signal<Conversation | null>(null);
   messageText = '';
-  searchQuery = '';
+  searchQuery = signal('');
 
   currentUserId = computed(() => this.data.currentUserId());
 
   filteredConversations = computed(() => {
-    const q = this.searchQuery.toLowerCase();
+    const q = this.searchQuery().toLowerCase();
     if (!q) return this.data.conversations();
     return this.data.conversations().filter(c =>
       c.participantName.toLowerCase().includes(q)

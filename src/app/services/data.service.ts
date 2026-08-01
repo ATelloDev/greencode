@@ -21,15 +21,15 @@ export class DataService {
   readonly analytics = signal<ProfileAnalytics | null>(null);
   readonly darkMode = signal<boolean>(false);
 
-  private readonly POSTS_KEY = 'redlink_posts_v3';
-  private readonly CONN_KEY = 'redlink_connections_v3';
-  private readonly JOBS_KEY = 'redlink_jobs_v3';
-  private readonly CONV_KEY = 'redlink_conversations_v3';
-  private readonly NOTIF_KEY = 'redlink_notifications_v3';
-  private readonly PROFILE_KEY = 'redlink_profile_v3';
-  private readonly ACTIVITY_KEY = 'redlink_activity_v3';
-  private readonly ANALYTICS_KEY = 'redlink_analytics_v3';
-  private readonly THEME_KEY = 'redlink_dark_mode';
+  private readonly POSTS_KEY = 'greencode_posts_v3';
+  private readonly CONN_KEY = 'greencode_connections_v3';
+  private readonly JOBS_KEY = 'greencode_jobs_v3';
+  private readonly CONV_KEY = 'greencode_conversations_v3';
+  private readonly NOTIF_KEY = 'greencode_notifications_v3';
+  private readonly PROFILE_KEY = 'greencode_profile_v3';
+  private readonly ACTIVITY_KEY = 'greencode_activity_v3';
+  private readonly ANALYTICS_KEY = 'greencode_analytics_v3';
+  private readonly THEME_KEY = 'greencode_dark_mode';
 
   private realUsers: RandomUser[] = [];
 
@@ -345,6 +345,8 @@ export class DataService {
     const stored = this.loadObj(this.PROFILE_KEY);
     if (stored) {
       this.profile.set(stored);
+      this.initAnalytics();
+      this.initActivities();
       return;
     }
     const p: UserProfile = {

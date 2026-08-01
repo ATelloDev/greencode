@@ -25,7 +25,7 @@ import { Job } from '../../models';
                   <path d="M21 21l-4.35-4.35"/>
                 </svg>
               </span>
-                <input type="text" placeholder="Buscar títulos de empleo" [(ngModel)]="searchQuery" (ngModelChange)="onSearch()" class="search-input-field" />
+                <input type="text" placeholder="Buscar títulos de empleo" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)" class="search-input-field" />
               </div>
               <div class="search-field">
                 <span class="search-icon">
@@ -34,7 +34,7 @@ import { Job } from '../../models';
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
               </span>
-                <input type="text" placeholder="Ubicación" [(ngModel)]="locationQuery" (ngModelChange)="onSearch()" class="search-input-field" />
+                <input type="text" placeholder="Ubicación" [ngModel]="locationQuery()" (ngModelChange)="locationQuery.set($event)" class="search-input-field" />
               </div>
               <button class="btn btn-primary">Buscar</button>
             </div>
@@ -228,8 +228,8 @@ export class JobsComponent {
   private data = inject(DataService);
 
   selectedJob = signal<Job | null>(null);
-  searchQuery = '';
-  locationQuery = '';
+  searchQuery = signal('');
+  locationQuery = signal('');
   filter = signal<'all' | 'remote' | 'easy' | 'applied' | 'saved'>('all');
 
   constructor() {
@@ -241,8 +241,8 @@ export class JobsComponent {
 
   filteredJobs = computed(() => {
     let jobs = this.data.jobs();
-    const q = this.searchQuery.toLowerCase();
-    const loc = this.locationQuery.toLowerCase();
+    const q = this.searchQuery().toLowerCase();
+    const loc = this.locationQuery().toLowerCase();
 
     if (q) {
       jobs = jobs.filter(j =>
@@ -278,10 +278,6 @@ export class JobsComponent {
 
   toggleSave(job: Job): void {
     this.data.toggleSaveJob(job.id);
-  }
-
-  onSearch(): void {
-    // Computed signal auto-updates
   }
 
   getInitials(name: string): string {

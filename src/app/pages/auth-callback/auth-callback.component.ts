@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   template: `
     <div class="callback-page">
       <div class="spinner"></div>
-      <p class="mt-3 text-secondary">Completing sign-in...</p>
+      <p class="mt-3 text-secondary">Completando inicio de sesión...</p>
       @if (error) {
         <p class="mt-2" style="color: var(--red-600);">{{ error }}</p>
       }
@@ -36,7 +36,7 @@ export class AuthCallbackComponent implements OnInit {
     const errParam = this.route.snapshot.queryParamMap.get('error');
 
     if (errParam) {
-      this.error = `LinkedIn auth error: ${errParam}`;
+      this.error = `Error de autenticación de LinkedIn: ${errParam}`;
       setTimeout(() => this.router.navigate(['/login']), 3000);
       return;
     }
@@ -50,7 +50,7 @@ export class AuthCallbackComponent implements OnInit {
     if (success) {
       this.router.navigate(['/']);
     } else {
-      this.error = 'Authentication failed. Please try again.';
+      this.error = 'Autenticación fallida. Inténtalo de nuevo.';
       setTimeout(() => this.router.navigate(['/login']), 3000);
     }
   }

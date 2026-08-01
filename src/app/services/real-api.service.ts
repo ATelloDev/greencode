@@ -89,7 +89,7 @@ export class RealApiService {
    */
   getDiceBearAvatar(seed: string): string {
     this.updateStatus('DiceBear', 'connected', 1);
-    return `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(seed)}&backgroundColor=fecaca,fca5a5,f87171,ef4444`;
+    return `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(seed)}&backgroundColor=d1fae5,a7f3d0,6ee7b7,34d399`;
   }
 
   /**

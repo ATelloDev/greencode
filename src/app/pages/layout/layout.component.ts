@@ -204,7 +204,7 @@ import { RealApiService } from '../../services/real-api.service';
             </div>
           }
           <div class="divider"></div>
-          <p class="api-footer">RedLink usa APIs reales para datos de usuarios, fotos y autenticación</p>
+          <p class="api-footer">GreenCode usa APIs reales para datos de usuarios, fotos y autenticación</p>
         </div>
       }
     </div>

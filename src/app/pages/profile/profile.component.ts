@@ -51,7 +51,7 @@ import { Experience, Education } from '../../models';
                 <p class="profile-connections">{{ profile()?.connectionsCount }} conexiones</p>
               </div>
               <div class="profile-actions">
-                <button class="btn btn-primary" (click)="showEditModal.set(true)">Editar perfil</button>
+                <button class="btn btn-primary" (click)="startEditProfile()">Editar perfil</button>
                 <button class="btn btn-outline" (click)="showAddExperience.set(true)">Añadir sección</button>
               </div>
             </div>
@@ -134,7 +134,7 @@ import { Experience, Education } from '../../models';
         <div class="card section-card">
           <div class="section-header">
             <h2>Acerca de</h2>
-            <button class="section-edit" (click)="editSection = editSection === 'about' ? '' : 'about'">
+            <button class="section-edit" (click)="startEditAbout()">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
               </svg>
@@ -705,6 +705,12 @@ export class ProfileComponent {
     this.editingHeadline.set(false);
   }
 
+  startEditAbout(): void {
+    const p = this.profile();
+    this.aboutDraft = p?.about || '';
+    this.editSection = 'about';
+  }
+
   saveAbout(): void {
     this.data.updateProfile({ about: this.aboutDraft });
     this.editSection = '';
@@ -717,6 +723,16 @@ export class ProfileComponent {
       location: this.editDraft.location,
     });
     this.showEditModal.set(false);
+  }
+
+  startEditProfile(): void {
+    const p = this.profile();
+    this.editDraft = {
+      headline: p?.headline || '',
+      about: p?.about || '',
+      location: p?.location || '',
+    };
+    this.showEditModal.set(true);
   }
 
   startEditExperience(exp: Experience): void {
